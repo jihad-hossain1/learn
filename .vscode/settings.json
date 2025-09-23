@@ -1,0 +1,19 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "db-mysql.team24u.xyz",
+      "port": 3306,
+      "driver": "MariaDB",
+      "name": "dd",
+      "database": "mydb",
+      "username": "admin",
+      "askForPassword": true
+    }
+  ]
+}
