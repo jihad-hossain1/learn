@@ -46,7 +46,7 @@ Long-Term Memory (LTM):⁣
 - Embedding strategies⁣
 - Hybrid search (vector + keyword)⁣
 - Memory consolidation patterns⁣
-⁣
+⁣-
 
 𝟕. 𝐀𝐠𝐞𝐧𝐭𝐢𝐜 𝐑𝐀𝐆⁣
 - Query reformulation⁣
