@@ -1,0 +1,10 @@
+---
+document: # document 1
+  about:
+    - something
+    - something else
+---
+document: # document 2
+  about:
+    - something
+    - something else

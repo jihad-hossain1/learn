@@ -1,0 +1,38 @@
+# basic yaml file file with comments how to declare basic yaml file are as follows
+# this are the comments in yaml file
+
+about: this is the basic yaml file which contains the basic data types and structures in yaml
+version: 1.0.0
+string_into_array:
+  - this are direct string of list/array data
+  - data two
+  - data thre
+object_in_object: # this is the object in object data type in yaml
+  key1: value1
+  key2: value2
+  key3: valuee
+object_in_nested_object: # this is the nested object in yaml file
+  key1: true
+  key2: 123
+  key3: 123.45
+  string_of_array: # this is the string of array in yaml file
+    - data 1
+    - data 2
+    - data 3
+  key4: # this is the nested object in yaml file
+    nested_key1: one_nested_value
+    nested_key2: two_nested_value
+    nested_key3: three_nested_value
+object_of_array: # this are the single line commenting which are allowed in yaml
+  - key1: one_index_o
+    key2: two_index_o
+    key3: # this are nested objects of array
+      - nested_key1: one_nested_index_1
+        nested_key2: two_nested_index_1
+        nested_key3: three_nested_index_1
+  - key1: one_index_1
+    key2: two_index_1
+    key3: # this are nested objects of array
+      - nested_key1: one_nested_index_2
+        nested_key2: two_nested_index_2
+        nested_key3: three_nested_index_2

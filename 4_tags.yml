@@ -1,0 +1,12 @@
+integer: !!int 123
+float: !!float 123.45
+boolean: !!bool true
+null_value: !!null null
+string: !!str this is a string
+array: !!seq
+  - item 1
+  - item 2
+  - item 3
+object: !!map
+  key1: value1
+  key2: value2

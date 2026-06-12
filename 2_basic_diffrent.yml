@@ -1,0 +1,7 @@
+env: dev
+classes:
+  nfs::server:
+    export:
+      - /home/jihad/projects/learn/YAML/basic.yml
+      - /etc/exports
+parameters: one

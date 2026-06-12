@@ -1,0 +1,20 @@
+defaults: &default_settings
+  about: this is the basic yaml file which contains the basic data types and structures in yaml
+  version: 1.0.0
+  level: basic
+  is_basic: true
+  others: null
+
+service1: *default_settings
+service2:
+  <<: *default_settings
+  level: intermediate
+  is_basic: false
+service3:
+  <<: *default_settings
+  level: advanced
+  is_basic: false
+  others:
+    - additional data 1
+    - additional data 2
+    - additional data 3
