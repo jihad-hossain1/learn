@@ -1,0 +1,21 @@
+# Learn about YAML
+- what is YAML ?
+   - `Ans:` YAML stands for "YAML Ain't Markup Language" (originally "Yet Another Markup Language"). It is a human-readable data serialization format used to store configuration, settings, and structured data.
+- why need to learn YAML ?
+   - `Ans:` YAML is extremely popular in DevOps tools example - Docker Compose, Kubernetes, Github Actions, CI/CD Pipelines, Application Configuration Many applications store settings in YAML (Ansible, Prometheus),  
+- o
+   - `Ans:`
+- o
+   - `Ans:`
+- o
+   - `Ans:`
+- o
+   - `Ans:`
+- o
+   - `Ans:`
+- o
+   - `Ans:`
+- o
+   - `Ans:`
+- o
+   - `Ans:`
