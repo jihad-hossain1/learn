@@ -26,6 +26,14 @@ func main() {
 	fmt.Println("<Precedence Rules>")
 	// Precedence Rules
 	precedenceRule()
+
+	fmt.Println("<invoice discount>")
+	// invoice discount
+	invoice()
+
+	fmt.Println("<practice>")
+	// practice
+	practice()	
 }
 
 func arithmeticOperators() {
@@ -99,4 +107,31 @@ func precedenceRule() {
 
 	result = (10 + 5) * 2
 	fmt.Println(result)
+}
+
+func invoice(){
+	prdPrice := 5000.0
+	qty := 3
+	disc := 10.0
+
+	subTotal := prdPrice * float64(qty)
+	discAmount := subTotal * disc / 100
+	total := subTotal - disc
+
+	fmt.Println("Subtotal:", subTotal, "Tk.")
+	fmt.Println("Discount:", discAmount,"Tk.")
+	fmt.Println("Total:", total,"Tk.")
+
+	isHighValue := total >= 10000
+	fmt.Println("High value invoice:", isHighValue)
+}
+
+func practice(){
+	x := 10
+	x += 2
+	x *= 2
+	x -= 3
+	x /=4
+
+	fmt.Println(x)
 }
