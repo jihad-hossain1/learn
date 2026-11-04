@@ -134,4 +134,6 @@ func practice(){
 	x /=4
 
 	fmt.Println(x)
+	age := 17
+	fmt.Println(age >= 18)
 }
