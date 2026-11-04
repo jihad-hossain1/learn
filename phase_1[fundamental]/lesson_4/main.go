@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 	"strings"
 )
@@ -20,8 +20,14 @@ func main(){
 	// fmt.Println("<user multiple input>")
 	// userMultiInput()
 
-	fmt.Println("<full line name space>")
-	fullLine()
+	// fmt.Println("<full line name space>")
+	// fullLine()
+
+	// fmt.Println("<Simple calculator>")
+	// simpleCalculator()
+
+	fmt.Println("<Practice>")
+	practice()
 }
 
 func startLesson(){
@@ -91,4 +97,113 @@ func fullLine(){
 	name = strings.TrimSpace(name)
 
 	fmt.Println("Hello,", name)
+}
+
+func simpleCalculator(){
+	var a,b float64
+	var operator string 
+
+	fmt.Print("Enter first number: ")
+	fmt.Scan(&a)
+
+	fmt.Print("Enter operator (=,-,*,/): ")
+	fmt.Scan(&operator)
+
+	fmt.Print("Enter second number: ")
+	fmt.Scan(&b)
+
+	switch operator {
+	case "+":
+		fmt.Printf("Result: %.2f\n",a+b)
+	case "-":
+		fmt.Printf("Result: %.2f",a-b)
+	case "*":
+		fmt.Printf("Result: %.2f\n",a*b)
+	case "/":
+		if b == 0 {
+			fmt.Println("Error: Division by zero!")
+		} else {
+		fmt.Printf("Result: %.2f\n",a/b)
+		}
+
+	default: 
+		fmt.Println("Invalid operator!")
+	}
+}
+
+func practice(){
+	// fmt.Println("[1]. Take a user's name and age, then print a formatted greeting.")
+	// p1()
+
+	// fmt.Println("[2]. Take two numbers and display their sum.")
+	// p2()
+
+	fmt.Println("[3]. Take a product name, price, and quantity, then calculate the total price.")
+	p3()
+}
+
+func p1(){
+	var name string
+	var age uint16 
+
+	fmt.Print("Enter Your name: ")
+	fmt.Scan(&name)
+
+	fmt.Print("Enter Your Age: ")
+	fmt.Scan(&age)
+
+	fmt.Printf("Hello %s & age %d, thank you are joining with us!\n", name,age)
+}
+
+func p2(){
+	var a,b uint 
+
+	fmt.Print("Enter First Number: ")
+	fmt.Scan(&a)
+
+	if a == 0 {
+		fmt.Println("Error: You can't add zero!")
+		return
+	}
+
+	fmt.Print("Enter Second Number: ")
+	fmt.Scan(&b)
+
+	if b == 0 {
+		fmt.Println("Error: You can't add zero!")
+		return
+	}
+
+	fmt.Println("Result:", a+b)
+}
+
+func p3(){
+	reader := bufio.NewReader(os.Stdin)
+
+	var price float64
+	var qty uint
+
+	fmt.Print("Enter product name: ")
+	name, err := reader.ReadString('\n')
+	if err != nil {
+		fmt.Println("Error reading input:", err)
+		return
+	}
+
+	name = strings.TrimSpace(name)
+
+	fmt.Print("Enter product price: ")
+	fmt.Scan(&price)
+
+	fmt.Print("Enter product quantity: ")
+	fmt.Scan(&qty)
+
+	total := price * float64(qty)
+
+	fmt.Print("\n")
+
+	fmt.Printf("Product name '%s', price/per %.2f, qty %d\n",name,price,qty)
+	fmt.Println("Total Price:",total)
+
+
 }
