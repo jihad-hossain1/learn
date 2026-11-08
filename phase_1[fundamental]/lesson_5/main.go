@@ -5,13 +5,20 @@ import "fmt"
 func main (){
 	fmt.Println("<Lesson 5>")
 
-	fmt.Println("if statement")
+	// fmt.Println("if statement")
 	// ifState()
 	// loginValidation()
 	// shortState()
 	// switchState()
 	// multiState()
-	switchWithExpression()
+	// switchWithExpression()
+	// forLoop()
+	// forWhile()
+	// infiniteLoop()
+	// breakAndContinue()
+	// nestedLoop()
+	// invGradSys()
+	practiceEx()
 }	
 
 func ifState(){
@@ -94,6 +101,124 @@ func switchWithExpression(){
 	case age < 20:
 		fmt.Println("Teenager")
 	case age < 60:
+		fmt.Println("Adult")
+	default:
+		fmt.Println("Senior")
+	}
+}
+
+func forLoop(){
+	for i := 1; i <= 5; i++ {
+		fmt.Println(i)
+	}
+}
+
+func forWhile(){
+	i := 1
+
+	for i <= 5 {
+		fmt.Println(i)
+		i++
+	}
+}
+
+func infiniteLoop(){
+	for {
+		fmt.Println("Running...")
+		break
+		// continue
+	}
+}
+
+func breakAndContinue(){
+	for i := 1; i <= 10; i++ {
+
+		if i >= 5 {
+			break
+		}
+
+		fmt.Println(i)
+	}
+
+	for i := 1; i <=5; i ++ {
+		if i == 3 {
+			continue
+		}
+
+		fmt.Println(i)
+	}
+}
+
+func nestedLoop(){
+	for i := 1; i <=3; i++ {
+		for j := 1; j <= 2; j++ {
+			fmt.Printf("i=%d, j=%d\n",i,j)
+		}
+	}
+}
+
+func invGradSys(){
+	var total float64
+
+	fmt.Print("Enter invoice total (TK): ")
+	fmt.Scan(&total)
+
+	switch {
+	case total <= 0:
+		fmt.Println("Invoice invoice amount")
+	case total < 1000:
+		fmt.Println("Small Invoice")
+	case total < 10000: 
+		fmt.Println("Medium Invoice")
+	default:
+		fmt.Println("Large Invoice")
+	}
+
+	for i := 1; i <= 3; i ++ {
+		fmt.Printf("Invoice processing step %d\n",i)
+	}
+}
+
+func practiceEx(){
+	fmt.Println("Exercise 1: Take an integer and check whether it is positive, negative, or zero.")
+	// ex1()
+	
+	fmt.Println(`Exercise 2: Take a user's age and categorize them as:
+	- Child (0–12)
+	- Teenager (13–19)
+	- Adult (20–59)
+	- Senior (60+)`,)
+	ex2()
+
+}
+
+func ex1(){
+	var value int 
+
+	fmt.Print("Choose a value: ")
+	fmt.Scan(&value)
+
+	if value <= 0 {
+		fmt.Println("negative")
+	} else {
+		fmt.Println("positive")
+	}
+}
+
+func ex2(){
+	var age int
+
+	fmt.Print("Enter your age: ")
+	fmt.Scan(&age)
+
+	switch {
+	case age < 0:
+		fmt.Println("Not allow") 
+	case age <= 12:
+		fmt.Println("Child")
+	case age >= 19:
+		fmt.Println("Teenager")
+	case age >= 59:
 		fmt.Println("Adult")
 	default:
 		fmt.Println("Senior")
