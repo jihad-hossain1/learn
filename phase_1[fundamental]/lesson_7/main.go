@@ -39,8 +39,76 @@ func arrayInitialization() {
 	fmt.Println(numbers)
 }
 
+func accessingAndUpdate(){
+	fruits := [3]string{"Apple","Banana","Orange"}
+
+	fmt.Println(fruits[0])
+	fmt.Println(fruits[1])
+
+	fruits[1] = "Mango"
+
+	fmt.Println(fruits)
+	
+	// array length 
+	length := len(fruits)
+	fmt.Println(length)
+
+}
+
+func iterateOverArray(){
+	numbers := [5]int{10,20,30,40,50}
+
+	// traditional for loop
+	for i := 0; i < len(numbers); i++ {
+		fmt.Println(numbers[i])
+	} 
+
+	// using range 
+	for index,value := range numbers{
+		fmt.Println("Index:",index,"Value:",value)
+	}
+
+	// without index
+	for _,value := range numbers{
+		fmt.Println(value)
+	}
+}
+
+func slices(){
+	names:=[]string{"Jihad","Rahim","Karim"}
+
+	for _,value := range names{
+		fmt.Println(value)
+	}
+
+	// using make to create slice
+	numbers := make([]int,5)
+	fmt.Println(numbers)
+}
+
+func sliceWithMake(){
+	slice := make([]int,3,5)
+
+	fmt.Println("Slice:",slice)
+	fmt.Println("Length:",len(slice))
+	fmt.Println("Capacity:",cap(slice))
+
+	slice = append(slice, 10)
+	slice = append(slice, 20)
+	slice = append(slice, 30)
+
+	for _,value:= range slice{
+		fmt.Println(value)
+	}
+}
+
+
 func main() {
 	// arrayDeclare()
 	// arrayExm()
-	arrayInitialization()
+	// arrayInitialization()
+	// accessingAndUpdate()
+	// iterateOverArray()
+	// slices()
+	sliceWithMake()
 }
