@@ -111,6 +111,68 @@ func sliceOperation() {
 	fmt.Println(numbers[:])
 }
 
+func copySlice() {
+	source := []int{10, 20, 30, 40, 50}
+
+	destination := make([]int, len(source))
+
+	copied := copy(destination, source)
+
+	destination = append(destination, 60)
+
+	fmt.Println("Source:", source)
+	fmt.Println("Destination:", destination)
+	fmt.Println("Copied elements:", copied)
+
+	fmt.Println("=====")
+
+	for index, value := range source {
+		fmt.Printf("src: ind-%d, val-%d\n", index, value)
+	}
+
+	fmt.Println("=====")
+
+	for index, value := range destination {
+		fmt.Printf("dest: ind-%d, val-%d\n", index, value)
+	}
+
+}
+
+func removeElementFromSlice() {
+	numbers := []int{1, 2, 3, 4, 5, 6}
+
+	index := 2
+
+	numbers = append(numbers[:index], numbers[index+1:]...)
+
+	fmt.Println(numbers)
+}
+
+func displayProducts(products []string) {
+	fmt.Println("\n--- Product Inventory ---")
+
+	for index, product := range products {
+		fmt.Printf("%d. %s\n", index+1, product)
+	}
+
+	fmt.Println("Total products:", len(products))
+}
+
+func addProduct(products []string, product string) []string {
+	products = append(products, product)
+	return products
+}
+
+func practice() {
+	products := []string{"Keyboard", "Mouse", "Monitor"}
+
+	displayProducts(products)
+
+	products = addProduct(products, "Laptop")
+
+	displayProducts(products)
+}
+
 func main() {
 	// arrayDeclare()
 	// arrayExm()
@@ -119,5 +181,8 @@ func main() {
 	// iterateOverArray()
 	// slices()
 	// sliceWithMake()
-	sliceOperation()
+	// sliceOperation()
+	// copySlice()
+	// removeElementFromSlice()
+	practice()
 }
