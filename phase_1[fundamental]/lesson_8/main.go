@@ -206,6 +206,78 @@ func inventoryManage() {
 	displayProd(products)
 }
 
+
+
+func ex1(){
+	fmt.Println("Create a map containing your:(name,age,city,profession) Print every key-value pair.")
+
+	profile := map[string]any{
+		"name": "Jihad Hossain",
+		"age": 31,
+		"city": "Dhaka",
+		"profession": "Dev",
+	}
+
+	for key,value := range profile{
+		fmt.Printf("%s : %s\n",key,value)
+	}
+
+
+}
+
+func addStd(students map[string]map[string]any,name string,mark uint8){
+	students[name] = map[string]any{
+		"name": name,
+		"mark": mark,
+	}	
+}
+
+
+func calStdMrk(students map[string]map[string]any) float64{
+	var total uint
+
+	for _,student := range students {
+		total += uint(student["mark"].(uint8))
+	}
+
+	if len(students) == 0 {
+		return 0
+	}
+
+	return  float64(total) / float64((len(students)))
+}
+
+func displayStd(students map[string]map[string]any){
+	for _,student := range students{
+		fmt.Printf("name: %s, mark: %s",student["name"],student["mark"])
+	}
+}
+
+func ex2(){
+	fmt.Println("Create a map of student names and their marks. [1] Add five students. [2] Print all students and marks. [3] Calculate the average marks.")
+	
+	students := make(map[string]map[string]any)
+
+	addStd(students,"abc",89)
+	addStd(students,"efg",43)
+	addStd(students,"def",80)
+	addStd(students,"etc",55)
+	addStd(students,"xyz",90)
+
+	fmt.Println("Student Records:")
+	displayStd(students)
+
+	average := calStdMrk(students)
+
+	fmt.Printf("\nAverage Marge: %.2f\n",average)
+	
+}
+
+func practiceEx(){
+	// ex1()
+	ex2()
+}
+
 func main() {
 	fmt.Println("hello!,Maps")
 	// decAndInit()
@@ -218,4 +290,5 @@ func main() {
 	// nestedMaps()
 	// differentValueWithMaps()
 	// inventoryManage()
+	practiceEx()
 }
