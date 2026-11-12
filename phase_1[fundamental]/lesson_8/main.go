@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"slices"
+)
 
 func decAndInit() {
 	user := map[string]string{
@@ -75,6 +78,134 @@ func iterateOverMap() {
 	}
 }
 
+func sortingMapMethod() {
+	prices := map[string]int{
+		"laptop":  3000,
+		"mouse":   300,
+		"desktop": 4000,
+	}
+
+	keys := make([]string, 0, len(prices))
+
+	for key := range prices {
+		keys = append(keys, key)
+	}
+
+	slices.Sort(keys)
+
+	for _, key := range keys {
+		fmt.Println(key, prices[key])
+	}
+
+	fmt.Println("Total products:", len(keys))
+}
+
+func nestedMaps() {
+	users := map[string]map[string]string{
+		"u1": {
+			"name": "jihad",
+			"city": "dhaka",
+		},
+		"u2": {
+			"name": "rahim",
+			"city": "chittagong",
+		},
+	}
+
+	fmt.Println(users["u1"]["name"])
+	fmt.Println(users["u2"]["city"])
+
+	prices := make(map[string]map[string]string)
+
+	prices["p1"] = make(map[string]string)
+	prices["p1"]["name"] = "laptop"
+	prices["p1"]["price"] = "100"
+
+	for key, value := range prices {
+		fmt.Println(key, value)
+	}
+}
+
+func differentValueWithMaps() {
+	user := map[string]any{
+		"name":     "jihad",
+		"age":      31,
+		"salary":   500000.00,
+		"isActive": true,
+	}
+
+	fmt.Println(user)
+
+	for key, value := range user {
+		fmt.Println(key, value)
+	}
+}
+
+func addProd(products map[string]float64, name string, price float64) {
+	products[name] = price
+	fmt.Println("Prod add sucs!")
+}
+
+func displayProd(products map[string]float64) {
+	fmt.Println("\n---- Product Inventory ----\n")
+
+	for name, price := range products {
+		fmt.Printf("%s: %.2f TK\n", name, price)
+	}
+
+	fmt.Println("Total Products:", len(products))
+}
+
+func searchProd(products map[string]float64, name string) {
+	price, ok := products[name]
+
+	if !ok {
+		fmt.Println("Prod not found!")
+		return
+	}
+
+	fmt.Printf("Product: %s\nPrice: %.2f TK\n", name, price)
+}
+
+func updProd(products map[string]float64, name string, price float64) {
+	_, ok := products[name]
+
+	if !ok {
+		fmt.Println("Product not found")
+		return
+	}
+
+	products[name] = price
+	fmt.Println("Product updated sucs")
+}
+
+func delProd(products map[string]float64, name string) {
+	_, ok := products[name]
+
+	if !ok {
+		fmt.Println("Product not found!")
+		return
+	}
+
+	delete(products, name)
+	fmt.Println("Product deleted sucs")
+}
+
+func inventoryManage() {
+	products := map[string]float64{
+		"laptop":   75000,
+		"mouse":    2300,
+		"keyboard": 12000,
+	}
+
+	displayProd(products)
+	addProd(products, "monitor", 20000)
+	searchProd(products, "mouse")
+	updProd(products, "laptop", 30000)
+	delProd(products, "keyboard")
+	displayProd(products)
+}
+
 func main() {
 	fmt.Println("hello!,Maps")
 	// decAndInit()
@@ -82,5 +213,9 @@ func main() {
 	// decNilMap()
 	// addElementsOnMap()
 	// checkKey()
-	iterateOverMap()
+	// iterateOverMap()
+	// sortingMapMethod()
+	// nestedMaps()
+	// differentValueWithMaps()
+	// inventoryManage()
 }
