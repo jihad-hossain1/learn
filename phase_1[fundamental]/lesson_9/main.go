@@ -135,6 +135,37 @@ func practical() {
 	fmt.Println("Stock:", product.Stock)
 }
 
+func valueChange(value *int) {
+	*value = 200
+}
+
+func usePointer() {
+	age := 20
+
+	var ptr *int
+
+	ptr = &age
+
+	valueChange(ptr)
+	fmt.Println(age)
+}
+
+func swap(a *int, b *int) {
+	temp := *a
+	*a = *b
+	*b = temp
+}
+
+func practice() {
+	// usePointer()
+	a := 10
+	b := 20
+
+	swap(&a, &b)
+
+	fmt.Println("a:", a, "b:", b)
+}
+
 func main() {
 	fmt.Println("Hello, lesson 9")
 	// memoryAdd()
@@ -144,5 +175,6 @@ func main() {
 	// nilPointer()
 	// makePointerWithNew()
 	// pointerWithStruct()
-	practical()
+	// practical()
+	practice()
 }
