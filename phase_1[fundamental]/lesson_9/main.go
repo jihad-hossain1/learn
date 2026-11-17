@@ -156,14 +156,63 @@ func swap(a *int, b *int) {
 	*b = temp
 }
 
-func practice() {
-	// usePointer()
+func swapNumber(){
 	a := 10
 	b := 20
 
 	swap(&a, &b)
 
 	fmt.Println("a:", a, "b:", b)
+}
+
+type  Prod struct {
+	Name string 
+	Price float64
+	Stock int 
+}
+
+func updateProduct(product *Prod,price float64, stock int){
+	product.Price = price
+	product.Stock += stock
+}
+
+func productPricing(){
+	product := Prod{
+		Name: "abc",
+		Stock: 20,
+		Price: 100,
+	}
+	
+	fmt.Println("Before update product:",product)
+
+	updateProduct(&product,200,-5)
+
+	fmt.Println("After update product:",product)
+}
+
+func nilPointerHandle(){
+	var ptr *int
+
+	fmt.Println("pointer",ptr)
+
+	if ptr == nil {
+		fmt.Println("pointer is nil")
+		return
+	}
+
+	age := 20
+
+	ptr = &age 
+
+	fmt.Println("pointer",ptr)
+}
+
+func practice() {
+	// usePointer()
+	// swapNumber()
+	// productPricing()
+	nilPointerHandle()
+
 }
 
 func main() {
