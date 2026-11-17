@@ -135,6 +135,11 @@ func practical() {
 	fmt.Println("Stock:", product.Stock)
 }
 
+func practice(){
+	var age int = 20
+	fmt.Println("Age mem:", &age)
+}
+
 func main() {
 	fmt.Println("Hello, lesson 9")
 	// memoryAdd()
@@ -144,5 +149,6 @@ func main() {
 	// nilPointer()
 	// makePointerWithNew()
 	// pointerWithStruct()
-	practical()
+	// practical()
+	practice()
 }
