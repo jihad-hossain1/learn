@@ -139,11 +139,73 @@ func nestedStruct() {
 	fmt.Println("Bio: age-> ", customer.Bio.Age)
 }
 
+type Motorcycle struct {
+	Name string 
+	Brand string 
+	Price float64
+	Stock int
+}
+
+func (m Motorcycle) display(){
+	fmt.Println("Name:",m.Name)
+	fmt.Printf("Price: %.2f\n",m.Price)
+}
+
+func (m *Motorcycle) updateMotor(price float64){
+	m.Price = price
+}
+
+func structMethod(){
+	motorcycle := Motorcycle{
+		Name: "YFZ R 150",
+		Price: 700000,
+		Brand: "Yamaha",
+	}
+
+	motorcycle.display()
+
+	motorcycle.updateMotor(680000)
+
+	motorcycle.display()
+}
+
+type Box struct {
+	Name string
+	Container string
+}
+
+type GiftBox struct {
+	Box 
+	Size string
+	Generate string
+	Price float64
+}
+
+
+
+func structComposition(){
+	giftBox := GiftBox{
+		Box: Box{
+			Name: "Birthday Box",
+			Container: "Short Container",
+		},
+		Size: "4x5",
+		Generate: "12-01-2026",
+		Price: 3200,
+	}
+
+	fmt.Println("Box name:",giftBox.Name)
+	fmt.Println("Box size:",giftBox.Size)
+	fmt.Printf("Box price: %.2f\n",giftBox.Price)
+}
+
 func main() {
 	fmt.Println("<Lesson 10>")
 
 	// defineStruct()
 	// readAndUpdate()
 	// structWithFunc()
-	nestedStruct()
+	// nestedStruct()
+	// structMethod()
+	structComposition()
 }
