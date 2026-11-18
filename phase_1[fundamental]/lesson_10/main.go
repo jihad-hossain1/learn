@@ -198,26 +198,58 @@ func structComposition() {
 }
 
 type ProDuct struct {
-	ID int 
-	Name string
-	Price string
+	ID    int
+	Name  string
+	Price float64
 	Stock int
 }
 
-func (p *ProDuct) UpdatePrice(price float64){
+func (p *ProDuct) UpdatePrice(price float64) {
 	if price > 0 {
-		p.Price = p.Price
+		p.Price = price
 	}
 }
 
-func (p ProDuct) addStock(qty int){
+func (p *ProDuct) AddStock(qty int) {
 	if qty > 0 {
-		p.Stock +=
+		p.Stock += qty
 	}
 }
 
-func productManagement(){
+func (p *ProDuct) RemoveStock(qty int) bool {
+	if qty <= 0 || qty > p.Stock {
+		return false
+	}
 
+	p.Stock -= qty
+	return true
+}
+
+func (p ProDuct) display() {
+	fmt.Println("ID:", p.ID)
+	fmt.Println("Name:", p.Name)
+	fmt.Println("Price:", p.Price)
+	fmt.Println("Stock:", p.Stock)
+}
+
+func productManagement() {
+	product := ProDuct{
+		ID:    1,
+		Name:  "Laptop",
+		Price: 400000,
+		Stock: 10,
+	}
+
+	product.UpdatePrice(50000)
+	product.AddStock(20)
+
+	success := product.RemoveStock(2)
+
+	if success {
+		fmt.Println("Stock remove suc.")
+	}
+
+	product.display()
 }
 
 func main() {
@@ -228,5 +260,6 @@ func main() {
 	// structWithFunc()
 	// nestedStruct()
 	// structMethod()
-	structComposition()
+	// structComposition()
+	productManagement()
 }
