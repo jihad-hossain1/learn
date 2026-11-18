@@ -140,24 +140,24 @@ func nestedStruct() {
 }
 
 type Motorcycle struct {
-	Name string 
-	Brand string 
+	Name  string
+	Brand string
 	Price float64
 	Stock int
 }
 
-func (m Motorcycle) display(){
-	fmt.Println("Name:",m.Name)
-	fmt.Printf("Price: %.2f\n",m.Price)
+func (m Motorcycle) display() {
+	fmt.Println("Name:", m.Name)
+	fmt.Printf("Price: %.2f\n", m.Price)
 }
 
-func (m *Motorcycle) updateMotor(price float64){
+func (m *Motorcycle) updateMotor(price float64) {
 	m.Price = price
 }
 
-func structMethod(){
+func structMethod() {
 	motorcycle := Motorcycle{
-		Name: "YFZ R 150",
+		Name:  "YFZ R 150",
 		Price: 700000,
 		Brand: "Yamaha",
 	}
@@ -170,33 +170,54 @@ func structMethod(){
 }
 
 type Box struct {
-	Name string
+	Name      string
 	Container string
 }
 
 type GiftBox struct {
-	Box 
-	Size string
+	Box
+	Size     string
 	Generate string
-	Price float64
+	Price    float64
 }
 
-
-
-func structComposition(){
+func structComposition() {
 	giftBox := GiftBox{
 		Box: Box{
-			Name: "Birthday Box",
+			Name:      "Birthday Box",
 			Container: "Short Container",
 		},
-		Size: "4x5",
+		Size:     "4x5",
 		Generate: "12-01-2026",
-		Price: 3200,
+		Price:    3200,
 	}
 
-	fmt.Println("Box name:",giftBox.Name)
-	fmt.Println("Box size:",giftBox.Size)
-	fmt.Printf("Box price: %.2f\n",giftBox.Price)
+	fmt.Println("Box name:", giftBox.Name)
+	fmt.Println("Box size:", giftBox.Size)
+	fmt.Printf("Box price: %.2f\n", giftBox.Price)
+}
+
+type ProDuct struct {
+	ID int 
+	Name string
+	Price string
+	Stock int
+}
+
+func (p *ProDuct) UpdatePrice(price float64){
+	if price > 0 {
+		p.Price = p.Price
+	}
+}
+
+func (p ProDuct) addStock(qty int){
+	if qty > 0 {
+		p.Stock +=
+	}
+}
+
+func productManagement(){
+
 }
 
 func main() {
