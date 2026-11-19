@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -72,7 +73,7 @@ func stringIndexing() {
 	fmt.Println(unicodeText[0])
 }
 
-func stringWithUnicode(){
+func stringWithUnicode() {
 	text := "বাংলা"
 
 	letters := []rune(text)
@@ -80,28 +81,28 @@ func stringWithUnicode(){
 	fmt.Println(len(text))
 	fmt.Println(len(letters))
 
-	fmt.Printf("%c\n",letters[0])
+	fmt.Printf("%c\n", letters[0])
 }
 
-func iterateOverString(){
+func iterateOverString() {
 	text := "Go"
 
 	for i := 0; i < len(text); i++ {
-		fmt.Printf("%c\n",text[i])
+		fmt.Printf("%c\n", text[i])
 	}
 
-	for idx,value := range text{
+	for idx, value := range text {
 		fmt.Printf("%d %c\n", idx+1, value)
-	} 
+	}
 
 	textUnicode := "বাংলা"
 
-	for idx,value := range textUnicode {
-		fmt.Println(idx,string(value))
+	for idx, value := range textUnicode {
+		fmt.Println(idx, string(value))
 	}
 }
 
-func stringBuilder(){
+func stringBuilder() {
 	firstName := "Jihad"
 	lastName := "Hossain"
 
@@ -120,16 +121,113 @@ func stringBuilder(){
 	fmt.Println(result)
 }
 
-func stringsBuiltInFunc(){
+func stringsBuiltInFunc() {
 	name := "   Jihad Hossain   "
 
 	fmt.Println(strings.TrimSpace(name))
 	fmt.Println(strings.ToUpper(strings.TrimSpace(name)))
 }
 
+func splitAndJoin() {
+	categories := "Electronics,Clothing,Food"
 
+	result := strings.Split(categories, ",")
 
+	for _, value := range result {
+		fmt.Println(value)
+	}
 
+	fmt.Println(result)
+
+	cats := []string{
+		"a",
+		"b",
+		"c",
+	}
+
+	rslt := strings.Join(cats, " | ")
+
+	fmt.Println(rslt)
+}
+
+func stringConversion() {
+	age, err := strconv.Atoi("30")
+
+	if err != nil {
+		fmt.Println("Invalid number")
+		return
+	}
+
+	fmt.Println(age)
+	fmt.Printf("%T\n", age)
+
+	birthYear := 1993
+
+	result := strconv.Itoa(birthYear)
+
+	fmt.Println(result)
+	fmt.Printf("%T\n", result)
+
+	price, err := strconv.ParseFloat("1020.653", 64)
+
+	if err != nil {
+		fmt.Println("Invalid price")
+		return
+	}
+
+	fmt.Println(price)
+
+	sprice := 1020.657
+
+	sellPrice := strconv.FormatFloat(sprice, 'f', 2, 64)
+
+	fmt.Println(sellPrice)
+
+}
+
+type Product struct {
+	ID    int
+	Name  string
+	Price float64
+}
+
+func searchProducts(products []Product, keyword string) {
+	keyword = strings.ToLower(strings.TrimSpace(keyword))
+
+	for _, product := range products {
+		name := strings.ToLower(product.Name)
+
+		if strings.Contains(name, keyword) {
+			fmt.Printf(
+				"ID: %d | Name: %s | Price: %.2f\n",
+				product.ID,
+				product.Name,
+				product.Price,
+			)
+		}
+	}
+}
+
+func practicalProject() {
+	products := []Product{
+		{1, "laptop", 70000},
+		{2, "Mouse", 4000},
+		{3, "Keyboard", 2000},
+		{4, "USB Driver", 1000},
+		{5, "Monitor", 20000},
+		{6, "Gaming Laptop", 300000},
+		{7, "USB Cable", 200},
+		{8, "HDMI Cable", 400},
+		{9, "Floppy Driver", 300},
+	}
+
+	var search string
+
+	fmt.Printf("Enter Your Query:")
+	fmt.Scan(&search)
+
+	searchProducts(products, search)
+}
 
 func main() {
 	// stringInit()
@@ -139,5 +237,8 @@ func main() {
 	// stringWithUnicode()
 	// iterateOverString()
 	// stringBuilder()
-	stringsBuiltInFunc()
+	// stringsBuiltInFunc()
+	// splitAndJoin()
+	// stringConversion()
+	practicalProject()
 }
