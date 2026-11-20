@@ -229,6 +229,17 @@ func practicalProject() {
 	searchProducts(products, search)
 }
 
+func practice() {
+	var builder strings.Builder
+
+	builder.WriteString("firstName")
+	builder.WriteString(" ")
+	builder.WriteString("lastName")
+
+	fmt.Println(builder.Len())
+	fmt.Printf("%s\n", builder.String())
+}
+
 func main() {
 	// stringInit()
 	// stringDeclare()
@@ -240,5 +251,6 @@ func main() {
 	// stringsBuiltInFunc()
 	// splitAndJoin()
 	// stringConversion()
-	practicalProject()
+	// practicalProject()
+	practice()
 }
