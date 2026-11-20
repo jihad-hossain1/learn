@@ -238,6 +238,34 @@ func practice() {
 
 	fmt.Println(builder.Len())
 	fmt.Printf("%s\n", builder.String())
+
+	unicode := "বাংলাদেশ"
+
+	convertRune := []rune(unicode)
+
+	fmt.Println(len(unicode))
+	fmt.Println(len(convertRune))
+	fmt.Println(unicode)
+}
+
+func countCharacters(text string) int {
+	makeItRune := []rune(text)
+	fmt.Println("Bytes:", len(text))
+	fmt.Println("Code Points:", len(makeItRune))
+
+	return len(makeItRune)
+}
+
+func reverseString(text string) string {
+	characters := []rune(text)
+
+	// reverse using two pointers
+
+	for left, right := 0, len(characters)-1; left < right; left, right = left+1, right-1 {
+		characters[left], characters[right] = characters[right], characters[left]
+	}
+
+	return string(characters)
 }
 
 func main() {
@@ -252,5 +280,14 @@ func main() {
 	// splitAndJoin()
 	// stringConversion()
 	// practicalProject()
-	practice()
+	// practice()
+	// count := countCharacters("বাংলাদেশ,বাংলাদেশ,বাংলাদেশ,a")
+	// fmt.Println("Total Char:", count)
+
+	text := "1234567890987654321"
+
+	reversed := reverseString(text)
+
+	fmt.Println("Original:", text)
+	fmt.Println("Reversed:", reversed)
 }
