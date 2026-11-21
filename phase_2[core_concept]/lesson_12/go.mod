@@ -1,3 +1,3 @@
-module lesson-12
+module example.com/go-lang
 
 go 1.25.10
